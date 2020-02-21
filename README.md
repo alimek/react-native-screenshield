@@ -1,6 +1,10 @@
 # react-native-screenshield
 
-Prevent Screenshot Image
+Prevent Screenshot Image, block doing screenshot dynamically in your iOS/Android app.
+
+For iOS - using [ScreenShieldKit](https://screenshieldkit.com/)
+
+For Android - using flag `FLAG_SECURE`
 
 ## Installation
 
@@ -8,14 +12,45 @@ Prevent Screenshot Image
 npm install react-native-screenshield
 ```
 
+or
+
+```sh
+yarn add react-native-screenshield
+```
+
+## Linking
+
+ReactNative auto-linking will do the magic for you.
+
+## API
+
+`ProtectedView` props:
+
+| name  |  required | desc |
+|---|---|---|
+| source | yes| check RN `Image` prop |
+| style | yes| check RN `Image` prop |
+
+It also accept all RN `Image` props.
+
+Methods:
+
+| name  |  desc |
+|---|---|
+|  init(key?: string): void | iOS - key is required - ScreenShieldKit License, Android - not required, not used|
+| isInitialized(): boolean  | Return if module was initialized |
+
+
 ## Usage
 
 ```js
-import Screenshield from "react-native-screenshield";
+import ScreenShield from "react-native-screenshield";
 
 // ...
+ScreenShield.init('abdc');
+// ...
 
-const deviceName = await Screenshield.getDeviceName();
+<ProtectedView source={image} style={{ width: 100, height: 100 }} />
 ```
 
 ## License
