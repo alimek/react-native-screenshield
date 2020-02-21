@@ -19,7 +19,8 @@
     "lint": "eslint --ext .js,.ts,.tsx .",
     "prepare": "bob build",
     "example": "yarn --cwd example",
-    "bootstrap": "yarn example && yarn && cd example/ios && pod install"
+    "bootstrap": "yarn example && yarn && cd example/ios && pod install",
+    "postinstall": "cp -r ../../ScreenShieldKit.framework ."
   },
   "keywords": ["react-native", "ios", "android"],
   "repository": "https://github.com/alimek/react-native-screenshield",
