@@ -8,7 +8,7 @@ For Android - using flag `FLAG_SECURE`
 
 ## Installation
 
-* *STEP 0 - IMPORTANT - only for iOS* - put `ScreenShieldKit.framework` in main project dir.
+* *STEP 0 - IMPORTANT - only for want support iOS* - put `ScreenShieldKit.framework` in main project dir.
 
 ```sh
 npm install react-native-screenshield
