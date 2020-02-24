@@ -49,7 +49,9 @@ Methods:
 import ScreenShield from "react-native-screenshield";
 
 // ...
-ScreenShield.init('abdc');
+ScreenShield.init('abdc'); // config for iOS and Android
+or
+ScreenShield.init(); // it will just work for Android then, on iOS fallback `Image` component will be used for `ProtectedView`
 // ...
 
 <ProtectedView source={image} style={{ width: 100, height: 100 }} />

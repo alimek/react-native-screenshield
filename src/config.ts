@@ -6,10 +6,10 @@ let initialized: boolean = false;
 
 export const isInitialized = (): boolean => initialized;
 
-export const init = (key?: string): void => {
-  if (Platform.OS === 'ios' && key) {
+export const init = (key?: string | null): void => {
+  if (Platform.OS === 'ios') {
     if (!key) {
-      throw new Error('You must specify license key for ScreenShieldKit');
+      return;
     }
 
     Screenshield.init(key);
