@@ -20,7 +20,7 @@
     "prepare": "bob build",
     "example": "yarn --cwd example",
     "bootstrap": "yarn example && yarn && cd example/ios && pod install",
-    "postinstall": "cp -r ../../ScreenShieldKit.framework ."
+    "postinstall": "cp -r ../../ios/ScreenShieldKit.framework ."
   },
   "keywords": ["react-native", "ios", "android"],
   "repository": "https://github.com/alimek/react-native-screenshield",
