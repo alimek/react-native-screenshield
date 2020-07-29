@@ -8,32 +8,49 @@ import {
 } from 'react-native';
 
 const { Screenshield } = NativeModules;
-const RCTSSKProtectedImageView = requireNativeComponent(
+const RCTSSKProtectedImageView: any = requireNativeComponent(
   'RCTSSKProtectedImageView'
 );
 
 import { isInitialized } from '../config';
 
-export interface ProtectedViewProps extends ImageProps {}
+export interface ProtectedViewProps extends ImageProps {
+  onSettingFlagFailed?: (error: Error) => void;
+}
 
 const ProtectedView: React.FunctionComponent<ProtectedViewProps> = ({
   source,
+  onSettingFlagFailed,
   ...others
 }) => {
   const initialized = isInitialized();
   const isAndroid = Platform.OS === 'android';
 
   React.useEffect(() => {
-    if (initialized && isAndroid) {
-      Screenshield.enableSecureFlag();
-    }
-
-    return () => {
+    (async () => {
       if (initialized && isAndroid) {
-        Screenshield.disableSecureFlag();
+        try {
+          await Screenshield.enableSecureFlag();
+        } catch (error) {
+          if (onSettingFlagFailed) {
+            onSettingFlagFailed(error);
+          }
+        }
       }
-    };
-  }, [initialized, isAndroid]);
+
+      return async () => {
+        if (initialized && isAndroid) {
+          try {
+            await Screenshield.disableSecureFlag();
+          } catch (error) {
+            if (onSettingFlagFailed) {
+              onSettingFlagFailed(error);
+            }
+          }
+        }
+      };
+    })();
+  }, [initialized, isAndroid, onSettingFlagFailed]);
 
   if (!initialized) {
     return <Image source={source} {...others} />;

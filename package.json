@@ -1,6 +1,6 @@
 {
   "name": "react-native-screenshield",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Prevent Screenshot Image",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
@@ -11,7 +11,7 @@
     "lib",
     "android",
     "ios",
-    "reactnativescreenshield.podspec"
+    "react-native-screenshield.podspec"
   ],
   "scripts": {
     "test": "jest",
@@ -22,7 +22,11 @@
     "bootstrap": "yarn example && yarn && cd example/ios && pod install",
     "postinstall": "cp -r ../../ios/ScreenShieldKit.framework ."
   },
-  "keywords": ["react-native", "ios", "android"],
+  "keywords": [
+    "react-native",
+    "ios",
+    "android"
+  ],
   "repository": "https://github.com/alimek/react-native-screenshield",
   "author": "Grzegorz Mandziak <alimek@alimek.pl> (https://github.com/alimek)",
   "license": "MIT",
@@ -31,21 +35,21 @@
   },
   "homepage": "https://github.com/alimek/react-native-screenshield#readme",
   "devDependencies": {
-    "@commitlint/config-conventional": "^8.3.4",
-    "@react-native-community/bob": "^0.9.7",
-    "@react-native-community/eslint-config": "^0.0.7",
-    "@types/jest": "^25.1.2",
+    "@commitlint/config-conventional": "^9.1.2",
+    "@react-native-community/bob": "^0.16.2",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@types/jest": "^26.0.7",
     "@types/react": "^16.9.19",
-    "@types/react-native": "0.61.10",
-    "commitlint": "^8.3.4",
-    "eslint": "^6.8.0",
+    "@types/react-native": "^0.63.2",
+    "commitlint": "^9.1.0",
+    "eslint": "^7.5.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
     "husky": "^4.0.1",
-    "jest": "^25.1.0",
-    "prettier": "^1.19.1",
-    "react": "~16.9.0",
-    "react-native": "~0.61.5",
+    "jest": "^26.1.0",
+    "prettier": "^2.0.5",
+    "react": "16.13.1",
+    "react-native": "0.63.2",
     "typescript": "^3.7.5"
   },
   "peerDependencies": {
@@ -54,7 +58,9 @@
   },
   "jest": {
     "preset": "react-native",
-    "modulePathIgnorePatterns": ["<rootDir>/lib/"]
+    "modulePathIgnorePatterns": [
+      "<rootDir>/lib/"
+    ]
   },
   "husky": {
     "hooks": {
@@ -63,7 +69,10 @@
     }
   },
   "eslintConfig": {
-    "extends": ["@react-native-community", "prettier"],
+    "extends": [
+      "@react-native-community",
+      "prettier"
+    ],
     "rules": {
       "prettier/prettier": [
         "error",
@@ -79,6 +88,10 @@
   "@react-native-community/bob": {
     "source": "src",
     "output": "lib",
-    "targets": ["commonjs", "module", "typescript"]
+    "targets": [
+      "commonjs",
+      "module",
+      "typescript"
+    ]
   }
 }

@@ -33,7 +33,7 @@ ReactNative auto-linking will do the magic for you.
 | source | yes| check RN `Image` prop |
 | style | yes| check RN `Image` prop |
 
-It also accept all RN `Image` props.
+It also accepts all RN `Image` props.
 
 Methods:
 
@@ -41,12 +41,13 @@ Methods:
 |---|---|
 |  init(key?: string): void | iOS - key is required - ScreenShieldKit License, Android - not required, not used|
 | isInitialized(): boolean  | Return if module was initialized |
+| onSettingFlagFailed?: (error: Error) => void | method which is failed when settings flag on android failed |
 
 
 ## Usage
 
 ```js
-import ScreenShield from "react-native-screenshield";
+import ScreenShield, { ProtectedView } from "react-native-screenshield";
 
 // ...
 ScreenShield.init('abdc'); // config for iOS and Android
