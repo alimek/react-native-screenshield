@@ -33,7 +33,7 @@ const ProtectedView: React.FunctionComponent<ProtectedViewProps> = ({
           await Screenshield.enableSecureFlag();
         } catch (error) {
           if (onSettingFlagFailed) {
-            onSettingFlagFailed(error);
+            onSettingFlagFailed(error as Error);
           }
         }
       }
@@ -44,7 +44,7 @@ const ProtectedView: React.FunctionComponent<ProtectedViewProps> = ({
             await Screenshield.disableSecureFlag();
           } catch (error) {
             if (onSettingFlagFailed) {
-              onSettingFlagFailed(error);
+              onSettingFlagFailed(error as Error);
             }
           }
         }
